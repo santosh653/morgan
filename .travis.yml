@@ -1,3 +1,17 @@
+# ----------------------------------------------------------------------------
+#
+# Package             : morgan
+# Source Repo         : https://github.com/expressjs/morgan
+# Travis Job Link     : https://travis-ci.com/github/santosh653/morgan
+# Created travis.yml  : No
+# Maintainer          : Santosh Kulkarni <santoshkulkarni70@gmail.com>
+#
+# Script License      : Apache License, Version 2 or later
+#
+# ----------------------------------------------------------------------------
+arch:
+  - amd64
+  - ppc64le
 language: node_js
 node_js:
   - "0.8"
@@ -16,6 +30,23 @@ node_js:
   - "11.15"
   - "12.16"
   - "13.12"
+#Excluding the non supported node.js versions on power ie 0.8 to 3.3
+jobs:
+ exclude:
+  - node_js: "0.8"
+    arch: ppc64le
+  - node_js: "0.10"
+    arch: ppc64le
+  - node_js: "0.12"
+    arch: ppc64le
+  - node_js: "1.8"
+    arch: ppc64le
+  - node_js: "2.5"
+    arch: ppc64le
+  - node_js: "3.3"
+    arch: ppc64le
+    
+
 cache:
   directories:
     - node_modules
